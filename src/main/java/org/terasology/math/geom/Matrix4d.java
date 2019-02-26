@@ -16,6 +16,27 @@
 
 package org.terasology.math.geom;
 
+import org.joml.AxisAngle4d;
+import org.joml.AxisAngle4f;
+import org.joml.Matrix3d;
+import org.joml.Matrix3x2dc;
+import org.joml.Matrix3x2fc;
+import org.joml.Matrix4dc;
+import org.joml.Matrix4fc;
+import org.joml.Matrix4x3d;
+import org.joml.Matrix4x3dc;
+import org.joml.Matrix4x3fc;
+import org.joml.Planed;
+import org.joml.Quaterniond;
+import org.joml.Quaterniondc;
+import org.joml.Quaternionf;
+import org.joml.Quaternionfc;
+import org.joml.Vector2dc;
+import org.joml.Vector3dc;
+import org.joml.Vector3f;
+import org.joml.Vector3fc;
+import org.joml.Vector4dc;
+
 import java.nio.*;
 
 /**
@@ -1473,4 +1494,1238 @@ public class Matrix4d extends BaseMatrix4d {
     }
 
 
+    @Override
+    public int properties() {
+        return 0;
+    }
+
+    @Override
+    public double m00() {
+        return 0;
+    }
+
+    @Override
+    public double m01() {
+        return 0;
+    }
+
+    @Override
+    public double m02() {
+        return 0;
+    }
+
+    @Override
+    public double m03() {
+        return 0;
+    }
+
+    @Override
+    public double m10() {
+        return 0;
+    }
+
+    @Override
+    public double m11() {
+        return 0;
+    }
+
+    @Override
+    public double m12() {
+        return 0;
+    }
+
+    @Override
+    public double m13() {
+        return 0;
+    }
+
+    @Override
+    public double m20() {
+        return 0;
+    }
+
+    @Override
+    public double m21() {
+        return 0;
+    }
+
+    @Override
+    public double m22() {
+        return 0;
+    }
+
+    @Override
+    public double m23() {
+        return 0;
+    }
+
+    @Override
+    public double m30() {
+        return 0;
+    }
+
+    @Override
+    public double m31() {
+        return 0;
+    }
+
+    @Override
+    public double m32() {
+        return 0;
+    }
+
+    @Override
+    public double m33() {
+        return 0;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul(Matrix4dc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulLocal(Matrix4dc left, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulLocalAffine(Matrix4dc left, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul(Matrix3x2dc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul(Matrix3x2fc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul(Matrix4x3dc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul(Matrix4x3fc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul(Matrix4fc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulPerspectiveAffine(Matrix4dc view, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulAffineR(Matrix4dc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulAffine(Matrix4dc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulTranslationAffine(Matrix4dc right, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulOrthoAffine(Matrix4dc view, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d fma4x3(Matrix4dc other, double otherFactor, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d add(Matrix4dc other, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d sub(Matrix4dc subtrahend, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mulComponentWise(Matrix4dc other, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d add4x3(Matrix4dc other, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d add4x3(Matrix4fc other, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d sub4x3(Matrix4dc subtrahend, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d mul4x3ComponentWise(Matrix4dc other, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public double determinant3x3() {
+        return 0;
+    }
+
+    @Override
+    public double determinantAffine() {
+        return 0;
+    }
+
+    @Override
+    public org.joml.Matrix4d invert(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d invertPerspective(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d invertFrustum(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d invertOrtho(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d invertPerspectiveView(Matrix4dc view, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d invertPerspectiveView(Matrix4x3dc view, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d invertAffine(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d transpose(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d transpose3x3(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d transpose3x3(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d getTranslation(org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d getScale(org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d get(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix4x3d get4x3(Matrix4x3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d get3x3(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Quaternionf getUnnormalizedRotation(Quaternionf dest) {
+        return null;
+    }
+
+    @Override
+    public Quaternionf getNormalizedRotation(Quaternionf dest) {
+        return null;
+    }
+
+    @Override
+    public Quaterniond getUnnormalizedRotation(Quaterniond dest) {
+        return null;
+    }
+
+    @Override
+    public Quaterniond getNormalizedRotation(Quaterniond dest) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer get(DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer get(int index, DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public FloatBuffer get(FloatBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public FloatBuffer get(int index, FloatBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer get(ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer get(int index, ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public Matrix4dc getToAddress(long address) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer getFloats(ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer getFloats(int index, ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public double[] get(double[] arr, int offset) {
+        return new double[0];
+    }
+
+    @Override
+    public float[] get(float[] arr, int offset) {
+        return new float[0];
+    }
+
+    @Override
+    public float[] get(float[] arr) {
+        return new float[0];
+    }
+
+    @Override
+    public DoubleBuffer getTransposed(DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer getTransposed(int index, DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer getTransposed(ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer getTransposed(int index, ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer get4x3Transposed(DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer get4x3Transposed(int index, DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer get4x3Transposed(ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer get4x3Transposed(int index, ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transform(org.joml.Vector4d v) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transform(Vector4dc v, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transform(double x, double y, double z, double w, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transformProject(org.joml.Vector4d v) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transformProject(Vector4dc v, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transformProject(double x, double y, double z, double w, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformProject(org.joml.Vector3d v) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformProject(Vector3dc v, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformProject(double x, double y, double z, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformPosition(org.joml.Vector3d v) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformPosition(Vector3dc v, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformPosition(double x, double y, double z, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformDirection(org.joml.Vector3d v) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformDirection(Vector3dc v, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3f transformDirection(Vector3f v) {
+        return null;
+    }
+
+    @Override
+    public Vector3f transformDirection(Vector3fc v, Vector3f dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d transformDirection(double x, double y, double z, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transformAffine(org.joml.Vector4d v) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transformAffine(Vector4dc v, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d transformAffine(double x, double y, double z, double w, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scale(Vector3dc xyz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scale(double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scale(double xyz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleXY(double x, double y, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleAround(double sx, double sy, double sz, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleAround(double factor, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleLocal(double xyz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleLocal(double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleAroundLocal(double sx, double sy, double sz, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d scaleAroundLocal(double factor, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(double ang, double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateTranslation(double ang, double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAffine(double ang, double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAroundAffine(Quaterniondc quat, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAround(Quaterniondc quat, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateLocal(double ang, double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateLocalX(double ang, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateLocalY(double ang, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateLocalZ(double ang, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAroundLocal(Quaterniondc quat, double ox, double oy, double oz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d translate(Vector3dc offset, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d translate(Vector3fc offset, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d translate(double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d translateLocal(Vector3fc offset, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d translateLocal(Vector3dc offset, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d translateLocal(double x, double y, double z, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateX(double ang, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateY(double ang, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateZ(double ang, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateTowardsXY(double dirX, double dirY, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateXYZ(double angleX, double angleY, double angleZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAffineXYZ(double angleX, double angleY, double angleZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateZYX(double angleZ, double angleY, double angleX, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAffineZYX(double angleZ, double angleY, double angleX, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateYXZ(double angleY, double angleX, double angleZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAffineYXZ(double angleY, double angleX, double angleZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(Quaterniondc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(Quaternionfc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAffine(Quaterniondc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateTranslation(Quaterniondc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateTranslation(Quaternionfc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateLocal(Quaterniondc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateAffine(Quaternionfc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateLocal(Quaternionfc quat, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(AxisAngle4f axisAngle, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(AxisAngle4d axisAngle, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(double angle, Vector3dc axis, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotate(double angle, Vector3fc axis, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d getRow(int row, org.joml.Vector4d dest) throws IndexOutOfBoundsException {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d getRow(int row, org.joml.Vector3d dest) throws IndexOutOfBoundsException {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d getColumn(int column, org.joml.Vector4d dest) throws IndexOutOfBoundsException {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d getColumn(int column, org.joml.Vector3d dest) throws IndexOutOfBoundsException {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d normal(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d normal(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d normalize3x3(org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d normalize3x3(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d unproject(double winX, double winY, double winZ, int[] viewport, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d unproject(double winX, double winY, double winZ, int[] viewport, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d unproject(Vector3dc winCoords, int[] viewport, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d unproject(Vector3dc winCoords, int[] viewport, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d unprojectRay(double winX, double winY, int[] viewport, org.joml.Vector3d originDest, org.joml.Vector3d dirDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d unprojectRay(Vector2dc winCoords, int[] viewport, org.joml.Vector3d originDest, org.joml.Vector3d dirDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d unprojectInv(Vector3dc winCoords, int[] viewport, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d unprojectInv(double winX, double winY, double winZ, int[] viewport, org.joml.Vector4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d unprojectInv(Vector3dc winCoords, int[] viewport, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d unprojectInv(double winX, double winY, double winZ, int[] viewport, org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d unprojectInvRay(Vector2dc winCoords, int[] viewport, org.joml.Vector3d originDest, org.joml.Vector3d dirDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d unprojectInvRay(double winX, double winY, int[] viewport, org.joml.Vector3d originDest, org.joml.Vector3d dirDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d project(double x, double y, double z, int[] viewport, org.joml.Vector4d winCoordsDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d project(double x, double y, double z, int[] viewport, org.joml.Vector3d winCoordsDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d project(Vector3dc position, int[] viewport, org.joml.Vector4d winCoordsDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d project(Vector3dc position, int[] viewport, org.joml.Vector3d winCoordsDest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d reflect(double a, double b, double c, double d, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d reflect(double nx, double ny, double nz, double px, double py, double pz, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d reflect(Quaterniondc orientation, Vector3dc point, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d reflect(Vector3dc normal, Vector3dc point, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d ortho(double left, double right, double bottom, double top, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d ortho(double left, double right, double bottom, double top, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoLH(double left, double right, double bottom, double top, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoLH(double left, double right, double bottom, double top, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoSymmetric(double width, double height, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoSymmetric(double width, double height, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoSymmetricLH(double width, double height, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoSymmetricLH(double width, double height, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d ortho2D(double left, double right, double bottom, double top, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d ortho2DLH(double left, double right, double bottom, double top, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAlong(Vector3dc dir, Vector3dc up, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAlong(double dirX, double dirY, double dirZ, double upX, double upY, double upZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAt(Vector3dc eye, Vector3dc center, Vector3dc up, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAt(double eyeX, double eyeY, double eyeZ, double centerX, double centerY, double centerZ, double upX, double upY, double upZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAtPerspective(double eyeX, double eyeY, double eyeZ, double centerX, double centerY, double centerZ, double upX, double upY, double upZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAtLH(Vector3dc eye, Vector3dc center, Vector3dc up, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAtLH(double eyeX, double eyeY, double eyeZ, double centerX, double centerY, double centerZ, double upX, double upY, double upZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lookAtPerspectiveLH(double eyeX, double eyeY, double eyeZ, double centerX, double centerY, double centerZ, double upX, double upY, double upZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspective(double fovy, double aspect, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspective(double fovy, double aspect, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveRect(double width, double height, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveRect(double width, double height, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveRect(double width, double height, double zNear, double zFar, boolean zZeroToOne) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveRect(double width, double height, double zNear, double zFar) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveOffCenter(double fovy, double offAngleX, double offAngleY, double aspect, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveOffCenter(double fovy, double offAngleX, double offAngleY, double aspect, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveOffCenter(double fovy, double offAngleX, double offAngleY, double aspect, double zNear, double zFar, boolean zZeroToOne) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveOffCenter(double fovy, double offAngleX, double offAngleY, double aspect, double zNear, double zFar) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveLH(double fovy, double aspect, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveLH(double fovy, double aspect, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d frustum(double left, double right, double bottom, double top, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d frustum(double left, double right, double bottom, double top, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d frustumLH(double left, double right, double bottom, double top, double zNear, double zFar, boolean zZeroToOne, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d frustumLH(double left, double right, double bottom, double top, double zNear, double zFar, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector4d frustumPlane(int plane, org.joml.Vector4d planeEquation) {
+        return null;
+    }
+
+    @Override
+    public Planed frustumPlane(int plane, Planed planeEquation) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d frustumCorner(int corner, org.joml.Vector3d point) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d perspectiveOrigin(org.joml.Vector3d origin) {
+        return null;
+    }
+
+    @Override
+    public double perspectiveFov() {
+        return 0;
+    }
+
+    @Override
+    public double perspectiveNear() {
+        return 0;
+    }
+
+    @Override
+    public double perspectiveFar() {
+        return 0;
+    }
+
+    @Override
+    public org.joml.Vector3d frustumRayDir(double x, double y, org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d positiveZ(org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d normalizedPositiveZ(org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d positiveX(org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d normalizedPositiveX(org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d positiveY(org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d normalizedPositiveY(org.joml.Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d originAffine(org.joml.Vector3d origin) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d origin(org.joml.Vector3d origin) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d shadow(Vector4dc light, double a, double b, double c, double d, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d shadow(double lightX, double lightY, double lightZ, double lightW, double a, double b, double c, double d, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d shadow(Vector4dc light, Matrix4dc planeTransform, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d shadow(double lightX, double lightY, double lightZ, double lightW, Matrix4dc planeTransform, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d pick(double x, double y, double width, double height, int[] viewport, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public boolean isAffine() {
+        return false;
+    }
+
+    @Override
+    public org.joml.Matrix4d arcball(double radius, double centerX, double centerY, double centerZ, double angleX, double angleY, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d arcball(double radius, Vector3dc center, double angleX, double angleY, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d projectedGridRange(Matrix4dc projector, double sLower, double sUpper, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d perspectiveFrustumSlice(double near, double far, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d orthoCrop(Matrix4dc view, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d transformAab(double minX, double minY, double minZ, double maxX, double maxY, double maxZ, org.joml.Vector3d outMin, org.joml.Vector3d outMax) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d transformAab(Vector3dc min, Vector3dc max, org.joml.Vector3d outMin, org.joml.Vector3d outMax) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d lerp(Matrix4dc other, double t, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateTowards(Vector3dc direction, Vector3dc up, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Matrix4d rotateTowards(double dirX, double dirY, double dirZ, double upX, double upY, double upZ, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public org.joml.Vector3d getEulerAnglesZYX(org.joml.Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public boolean testPoint(double x, double y, double z) {
+        return false;
+    }
+
+    @Override
+    public boolean testSphere(double x, double y, double z, double r) {
+        return false;
+    }
+
+    @Override
+    public boolean testAab(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
+        return false;
+    }
+
+    @Override
+    public org.joml.Matrix4d obliqueZ(double a, double b, org.joml.Matrix4d dest) {
+        return null;
+    }
+
+    @Override
+    public boolean equals(Matrix4dc m, double delta) {
+        return false;
+    }
 }

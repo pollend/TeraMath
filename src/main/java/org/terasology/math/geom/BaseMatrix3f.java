@@ -16,13 +16,15 @@
 
 package org.terasology.math.geom;
 
+import org.joml.Matrix3fc;
+
 import java.util.Locale;
 
 /**
  * Defines a 3x3 float matrix 
  * @author auto-generated
  */
-public abstract class BaseMatrix3f {
+public abstract class BaseMatrix3f implements Matrix3fc {
 
     /**
      * The immutable identity matrix
@@ -95,83 +97,83 @@ public abstract class BaseMatrix3f {
         return get(2, 2);
     }
 
+//
+//    /**
+//     * Returns a hash code value based on the data values in this
+//     * object.  Two different Matrix3d objects with identical data values
+//     * (i.e., Matrix3d.equals returns true) will return the same hash
+//     * code value.  Two objects with different data members may return the
+//     * same hash value, although this is not likely.
+//     * @return the integer hash code value
+//     */
+//    @Override
+//    public final int hashCode() {
+//        final int prime = 31;
+//        int result = 1;
+//        long temp;
+//        temp = Float.floatToIntBits(getM00());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM01());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM02());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM10());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM11());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM12());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM20());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM21());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//        temp = Float.floatToIntBits(getM22());
+//        result = prime * result + (int) (temp ^ (temp >>> 32));
+//
+//        return result;
+//    }
 
-    /**
-     * Returns a hash code value based on the data values in this
-     * object.  Two different Matrix3d objects with identical data values
-     * (i.e., Matrix3d.equals returns true) will return the same hash
-     * code value.  Two objects with different data members may return the
-     * same hash value, although this is not likely.
-     * @return the integer hash code value
-     */
-    @Override
-    public final int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        long temp;
-        temp = Float.floatToIntBits(getM00());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM01());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM02());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM10());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM11());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM12());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM20());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM21());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Float.floatToIntBits(getM22());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
+//  /**
+//     * This version correctly deals with NaN and signed zero values
+//     * @param obj the object to compare with
+//     * @return true if equal
+//     */
+//    @Override
+//    public final boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//
+//        if (obj instanceof BaseMatrix3f) {
+//            BaseMatrix3f other = (BaseMatrix3f) obj;
+//            return equals(other);
+//        }
+//
+//        return false;
+//    }
 
-        return result;
-    }
-
-    /**
-     * This version correctly deals with NaN and signed zero values
-     * @param obj the object to compare with
-     * @return true if equal
-     */
-    @Override
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-
-        if (obj instanceof BaseMatrix3f) {
-            BaseMatrix3f other = (BaseMatrix3f) obj;
-            return equals(other);
-        }
-
-        return false;
-    }
-
-    /**
-      * Returns true if all of the data members of Matrix3d m1 are
-      * equal to the corresponding data members in this Matrix3d.
-      * VecMath also uses explicit checks for -0 == 0
-      * @param other the matrix with which the comparison is made
-      * @return  true or false
-      */
-    public final boolean equals(BaseMatrix3f other) {
-        return
-            Float.floatToIntBits(getM00()) == Float.floatToIntBits(other.getM00())
-            && Float.floatToIntBits(getM01()) == Float.floatToIntBits(other.getM01())
-            && Float.floatToIntBits(getM02()) == Float.floatToIntBits(other.getM02())
-            && Float.floatToIntBits(getM10()) == Float.floatToIntBits(other.getM10())
-            && Float.floatToIntBits(getM11()) == Float.floatToIntBits(other.getM11())
-            && Float.floatToIntBits(getM12()) == Float.floatToIntBits(other.getM12())
-            && Float.floatToIntBits(getM20()) == Float.floatToIntBits(other.getM20())
-            && Float.floatToIntBits(getM21()) == Float.floatToIntBits(other.getM21())
-            && Float.floatToIntBits(getM22()) == Float.floatToIntBits(other.getM22());
-    }
+//    /**
+//      * Returns true if all of the data members of Matrix3d m1 are
+//      * equal to the corresponding data members in this Matrix3d.
+//      * VecMath also uses explicit checks for -0 == 0
+//      * @param other the matrix with which the comparison is made
+//      * @return  true or false
+//      */
+//    public final boolean equals(BaseMatrix3f other) {
+//        return
+//            Float.floatToIntBits(getM00()) == Float.floatToIntBits(other.getM00())
+//            && Float.floatToIntBits(getM01()) == Float.floatToIntBits(other.getM01())
+//            && Float.floatToIntBits(getM02()) == Float.floatToIntBits(other.getM02())
+//            && Float.floatToIntBits(getM10()) == Float.floatToIntBits(other.getM10())
+//            && Float.floatToIntBits(getM11()) == Float.floatToIntBits(other.getM11())
+//            && Float.floatToIntBits(getM12()) == Float.floatToIntBits(other.getM12())
+//            && Float.floatToIntBits(getM20()) == Float.floatToIntBits(other.getM20())
+//            && Float.floatToIntBits(getM21()) == Float.floatToIntBits(other.getM21())
+//            && Float.floatToIntBits(getM22()) == Float.floatToIntBits(other.getM22());
+//    }
 
     /**
       * Returns true if the L-infinite distance between this matrix
@@ -338,62 +340,62 @@ public abstract class BaseMatrix3f {
 
     }
 
-    /**
-     * Copies the matrix values into the array parameter.
-     * @param v the array into which the matrix values will be copied
-     */
-    public final void get(float[] v) {
-        v[0] = getM00();
-        v[1] = getM01();
-        v[2] = getM02();
-        v[3] = getM10();
-        v[4] = getM11();
-        v[5] = getM12();
-        v[6] = getM20();
-        v[7] = getM21();
-        v[8] = getM22();
-    }
+//    /**
+//     * Copies the matrix values into the array parameter.
+//     * @param v the array into which the matrix values will be copied
+//     */
+//    public final void get(float[] v) {
+//        v[0] = getM00();
+//        v[1] = getM01();
+//        v[2] = getM02();
+//        v[3] = getM10();
+//        v[4] = getM11();
+//        v[5] = getM12();
+//        v[6] = getM20();
+//        v[7] = getM21();
+//        v[8] = getM22();
+//    }
 
-    /**
-      * Returns a string that contains the values of this Matrix3d.
-      * @return the String representation
-      */
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        Locale locale = Locale.ROOT;
-        String fmt = "%6.2f";
-        String colSep = ", ";
-        String rowStart = "[";
-        String rowEnd = "]";
-        String newLine = "\n";
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM00()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM01()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM02()));
-        sb.append(rowEnd);
-        sb.append(newLine);
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM10()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM11()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM12()));
-        sb.append(rowEnd);
-        sb.append(newLine);
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM20()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM21()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM22()));
-        sb.append(rowEnd);
-
-        return sb.toString();
-    }
+//    /**
+//      * Returns a string that contains the values of this Matrix3d.
+//      * @return the String representation
+//      */
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        Locale locale = Locale.ROOT;
+//        String fmt = "%6.2f";
+//        String colSep = ", ";
+//        String rowStart = "[";
+//        String rowEnd = "]";
+//        String newLine = "\n";
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM00()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM01()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM02()));
+//        sb.append(rowEnd);
+//        sb.append(newLine);
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM10()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM11()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM12()));
+//        sb.append(rowEnd);
+//        sb.append(newLine);
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM20()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM21()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM22()));
+//        sb.append(rowEnd);
+//
+//        return sb.toString();
+//    }
 }

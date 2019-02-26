@@ -22,7 +22,7 @@ import java.util.Locale;
  * Defines a 3x3 double matrix 
  * @author auto-generated
  */
-public abstract class BaseMatrix3d {
+public abstract class BaseMatrix3d implements org.joml.Matrix3dc {
 
     /**
      * The immutable identity matrix
@@ -342,7 +342,7 @@ public abstract class BaseMatrix3d {
      * Copies the matrix values into the array parameter.
      * @param v the array into which the matrix values will be copied
      */
-    public final void get(double[] v) {
+    public final double[] get(double[] v) {
         v[0] = getM00();
         v[1] = getM01();
         v[2] = getM02();
@@ -352,6 +352,7 @@ public abstract class BaseMatrix3d {
         v[6] = getM20();
         v[7] = getM21();
         v[8] = getM22();
+        return v;
     }
 
     /**

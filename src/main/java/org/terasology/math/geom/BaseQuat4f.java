@@ -17,12 +17,14 @@
 package org.terasology.math.geom;
 
 
+import org.joml.Quaternionfc;
+
 /**
  * A 4-element quaternion represented by float precision floating 
  * point x,y,z,w coordinates.
  * @author Martin Steiger
  */
-public abstract class BaseQuat4f {
+public abstract class BaseQuat4f implements Quaternionfc {
 
     /**
      * The immutable identity quaternion

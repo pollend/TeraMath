@@ -16,57 +16,31 @@
 
 package org.terasology.math.geom;
 
+import org.joml.AxisAngle4d;
+import org.joml.AxisAngle4f;
+import org.joml.Matrix3d;
+import org.joml.Matrix3dc;
+import org.joml.Matrix3fc;
+import org.joml.Quaterniond;
+import org.joml.Quaterniondc;
+import org.joml.Quaternionf;
+import org.joml.Quaternionfc;
+import org.joml.Vector3d;
+import org.joml.Vector3dc;
+import org.joml.Vector3f;
+import org.joml.Vector3fc;
+
+import java.nio.ByteBuffer;
+import java.nio.DoubleBuffer;
+import java.nio.FloatBuffer;
+
 /**
  * Defines an immutable 3x3 double matrix
  * @author auto-generated
  */
 public class ImmutableMatrix3d extends BaseMatrix3d {
 
-    /**
-     * Entry at row 0, column 0
-     */
-    private final double m00;
-
-    /**
-     * Entry at row 0, column 1
-     */
-    private final double m01;
-
-    /**
-     * Entry at row 0, column 2
-     */
-    private final double m02;
-
-    /**
-     * Entry at row 1, column 0
-     */
-    private final double m10;
-
-    /**
-     * Entry at row 1, column 1
-     */
-    private final double m11;
-
-    /**
-     * Entry at row 1, column 2
-     */
-    private final double m12;
-
-    /**
-     * Entry at row 2, column 0
-     */
-    private final double m20;
-
-    /**
-     * Entry at row 2, column 1
-     */
-    private final double m21;
-
-    /**
-     * Entry at row 2, column 2
-     */
-    private final double m22;
-
+    org.joml.Matrix3d matrix;
 
     /**
      * Constructs and initializes a Matrix3d from the specified values.
@@ -155,6 +129,331 @@ public class ImmutableMatrix3d extends BaseMatrix3d {
     }
 
 
+    @Override
+    public double m00() {
+        return 0;
+    }
+
+    @Override
+    public double m01() {
+        return 0;
+    }
+
+    @Override
+    public double m02() {
+        return 0;
+    }
+
+    @Override
+    public double m10() {
+        return 0;
+    }
+
+    @Override
+    public double m11() {
+        return 0;
+    }
+
+    @Override
+    public double m12() {
+        return 0;
+    }
+
+    @Override
+    public double m20() {
+        return 0;
+    }
+
+    @Override
+    public double m21() {
+        return 0;
+    }
+
+    @Override
+    public double m22() {
+        return 0;
+    }
+
+    @Override
+    public Matrix3d mul(Matrix3dc right, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d mulLocal(Matrix3dc left, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d mul(Matrix3fc right, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d invert(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d transpose(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d get(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public AxisAngle4f getRotation(AxisAngle4f dest) {
+        return null;
+    }
+
+    @Override
+    public Quaternionf getUnnormalizedRotation(Quaternionf dest) {
+        return null;
+    }
+
+    @Override
+    public Quaternionf getNormalizedRotation(Quaternionf dest) {
+        return null;
+    }
+
+    @Override
+    public Quaterniond getUnnormalizedRotation(Quaterniond dest) {
+        return null;
+    }
+
+    @Override
+    public Quaterniond getNormalizedRotation(Quaterniond dest) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer get(DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public DoubleBuffer get(int index, DoubleBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public FloatBuffer get(FloatBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public FloatBuffer get(int index, FloatBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer get(ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer get(int index, ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer getFloats(ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public ByteBuffer getFloats(int index, ByteBuffer buffer) {
+        return null;
+    }
+
+    @Override
+    public Matrix3dc getToAddress(long address) {
+        return null;
+    }
+
+    @Override
+    public double[] get(double[] arr, int offset) {
+        return new double[0];
+    }
+
+    @Override
+    public float[] get(float[] arr, int offset) {
+        return new float[0];
+    }
+
+    @Override
+    public float[] get(float[] arr) {
+        return new float[0];
+    }
+
+    @Override
+    public Matrix3d scale(Vector3dc xyz, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d scale(double x, double y, double z, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d scale(double xyz, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d scaleLocal(double x, double y, double z, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d transform(Vector3d v) {
+        return null;
+    }
+
+    @Override
+    public Vector3d transform(Vector3dc v, Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3f transform(Vector3f v) {
+        return null;
+    }
+
+    @Override
+    public Vector3f transform(Vector3fc v, Vector3f dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d transform(double x, double y, double z, Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d transformTranspose(Vector3d v) {
+        return null;
+    }
+
+    @Override
+    public Vector3d transformTranspose(Vector3dc v, Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d transformTranspose(double x, double y, double z, Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateX(double ang, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateY(double ang, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateZ(double ang, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateXYZ(double angleX, double angleY, double angleZ, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateZYX(double angleZ, double angleY, double angleX, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateYXZ(double angleY, double angleX, double angleZ, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(double ang, double x, double y, double z, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateLocal(double ang, double x, double y, double z, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateLocalX(double ang, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateLocalY(double ang, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateLocalZ(double ang, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateLocal(Quaterniondc quat, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateLocal(Quaternionfc quat, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(Quaterniondc quat, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(Quaternionfc quat, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(AxisAngle4f axisAngle, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(AxisAngle4d axisAngle, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(double angle, Vector3dc axis, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotate(double angle, Vector3fc axis, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d getRow(int row, Vector3d dest) throws IndexOutOfBoundsException {
+        return null;
+    }
+
+    @Override
+    public Vector3d getColumn(int column, Vector3d dest) throws IndexOutOfBoundsException {
+        return null;
+    }
+
     /**
      * Retrieves the value at the specified row and column of the specified
      * matrix.
@@ -208,5 +507,100 @@ public class ImmutableMatrix3d extends BaseMatrix3d {
         }
 
         throw new ArrayIndexOutOfBoundsException("row/col not in [0..2]");
+    }
+
+    @Override
+    public Matrix3d normal(Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d lookAlong(Vector3dc dir, Vector3dc up, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d lookAlong(double dirX, double dirY, double dirZ, double upX, double upY, double upZ, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d getScale(Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d positiveZ(Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public Vector3d normalizedPositiveZ(Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public Vector3d positiveX(Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public Vector3d normalizedPositiveX(Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public Vector3d positiveY(Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public Vector3d normalizedPositiveY(Vector3d dir) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d add(Matrix3dc other, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d sub(Matrix3dc subtrahend, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d mulComponentWise(Matrix3dc other, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d lerp(Matrix3dc other, double t, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateTowards(Vector3dc direction, Vector3dc up, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d rotateTowards(double dirX, double dirY, double dirZ, double upX, double upY, double upZ, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public Vector3d getEulerAnglesZYX(Vector3d dest) {
+        return null;
+    }
+
+    @Override
+    public Matrix3d obliqueZ(double a, double b, Matrix3d dest) {
+        return null;
+    }
+
+    @Override
+    public boolean equals(Matrix3dc m, double delta) {
+        return false;
     }
 }

@@ -16,58 +16,22 @@
 
 package org.terasology.math.geom;
 
+import org.joml.AxisAngle4f;
+import org.joml.Matrix3fc;
+import org.joml.Quaterniond;
+import org.joml.Quaternionf;
+import org.joml.Quaternionfc;
+import org.joml.Vector3fc;
+
 import java.nio.*;
 
 /**
  * A float precision floating point 3x3 float matrix.
  * @author auto-generated
  */
-public class Matrix3f extends BaseMatrix3f {
+public class Matrix3f extends BaseMatrix3f{
 
-    /**
-     * Entry at row 0, column 0
-     */
-    public float m00;
-
-    /**
-     * Entry at row 0, column 1
-     */
-    public float m01;
-
-    /**
-     * Entry at row 0, column 2
-     */
-    public float m02;
-
-    /**
-     * Entry at row 1, column 0
-     */
-    public float m10;
-
-    /**
-     * Entry at row 1, column 1
-     */
-    public float m11;
-
-    /**
-     * Entry at row 1, column 2
-     */
-    public float m12;
-
-    /**
-     * Entry at row 2, column 0
-     */
-    public float m20;
-
-    /**
-     * Entry at row 2, column 1
-     */
-    public float m21;
-
-    /**
-     * Entry at row 2, column 2
-     */
-    public float m22;
+   private org.joml.Matrix3f matrix;
 
 
     /**
@@ -83,15 +47,7 @@ public class Matrix3f extends BaseMatrix3f {
      * @param m22 the m22 component
      */
     public Matrix3f(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22) {
-        this.m00 = m00;
-        this.m01 = m01;
-        this.m02 = m02;
-        this.m10 = m10;
-        this.m11 = m11;
-        this.m12 = m12;
-        this.m20 = m20;
-        this.m21 = m21;
-        this.m22 = m22;
+        this.matrix = new org.joml.Matrix3f(m00,m01,m02,m10,m11,m12,m20,m21,m22);
     }
 
     /**
@@ -100,15 +56,19 @@ public class Matrix3f extends BaseMatrix3f {
      *  @param m1  the source matrix
      */
     public Matrix3f(BaseMatrix3f m1) {
-        this.m00 = m1.getM00();
-        this.m01 = m1.getM01();
-        this.m02 = m1.getM02();
-        this.m10 = m1.getM10();
-        this.m11 = m1.getM11();
-        this.m12 = m1.getM12();
-        this.m20 = m1.getM20();
-        this.m21 = m1.getM21();
-        this.m22 = m1.getM22();
+        this.matrix = new org.joml.Matrix3f(m1.getM00(),m1.getM01(),m1.getM02(),m1.getM10(),m1.getM11(),m1.getM12(),m1.getM20(),m1.getM21(),m1.getM22());
+
+//        this.m00 = m1.getM00();
+//        this.m01 = m1.getM01();
+//        this.m02 = m1.getM02();
+//
+//        this.m10 = m1.getM10();
+//        this.m11 = m1.getM11();
+//        this.m12 = m1.getM12();
+//
+//        this.m20 = m1.getM20();
+//        this.m21 = m1.getM21();
+//        this.m22 = m1.getM22();
     }
 
     /**
@@ -117,17 +77,19 @@ public class Matrix3f extends BaseMatrix3f {
      * @param v the array of length 9 containing in order
      */
     public Matrix3f(float[] v) {
-        this.m00 = v[0];
-        this.m01 = v[1];
-        this.m02 = v[2];
-
-        this.m10 = v[3];
-        this.m11 = v[4];
-        this.m12 = v[5];
-
-        this.m20 = v[6];
-        this.m21 = v[7];
-        this.m22 = v[8];
+        this.matrix = new org.joml.Matrix3f(v[0],v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8]);
+//
+//        this.m00 = v[0];
+//        this.m01 = v[1];
+//        this.m02 = v[2];
+//
+//        this.m10 = v[3];
+//        this.m11 = v[4];
+//        this.m12 = v[5];
+//
+//        this.m20 = v[6];
+//        this.m21 = v[7];
+//        this.m22 = v[8];
     }
 
     /**
@@ -141,17 +103,325 @@ public class Matrix3f extends BaseMatrix3f {
      * Sets this instance to identity.
      */
     public final void setIdentity() {
-        this.m00 = 1;
-        this.m01 = 0;
-        this.m02 = 0;
+        this.matrix = new org.joml.Matrix3f();
+        this.matrix.identity();
+//        this.m00 = 1;
+//        this.m01 = 0;
+//        this.m02 = 0;
+//
+//        this.m10 = 0;
+//        this.m11 = 1;
+//        this.m12 = 0;
+//
+//        this.m20 = 0;
+//        this.m21 = 0;
+//        this.m22 = 1;
+    }
 
-        this.m10 = 0;
-        this.m11 = 1;
-        this.m12 = 0;
+    @Override
+    public float m00() {
+        return matrix.m00;
+    }
 
-        this.m20 = 0;
-        this.m21 = 0;
-        this.m22 = 1;
+    @Override
+    public float m01() {
+        return matrix.m01;
+    }
+
+    @Override
+    public float m02() {
+        return matrix.m02;
+    }
+
+    @Override
+    public float m10() {
+        return matrix.m10;
+    }
+
+    @Override
+    public float m11() {
+        return matrix.m11;
+    }
+
+    @Override
+    public float m12() {
+        return matrix.m12;
+    }
+
+    @Override
+    public float m20() {
+        return matrix.m20;
+    }
+
+    @Override
+    public float m21() {
+        return matrix.m21;
+    }
+
+    @Override
+    public float m22() {
+        return matrix.m22;
+    }
+
+    @Override
+    public org.joml.Matrix3f mul(Matrix3fc right, org.joml.Matrix3f dest) {
+        return matrix.mul(right,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f mulLocal(Matrix3fc left, org.joml.Matrix3f dest) {
+        return matrix.mulLocal(left,dest);
+    }
+
+    @Override
+    public float determinant() {
+        return matrix.determinant();
+    }
+
+
+    @Override
+    public org.joml.Matrix3f invert(org.joml.Matrix3f dest) {
+        return matrix.invert(dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f transpose(org.joml.Matrix3f dest) {
+        return matrix.transpose(dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f get(org.joml.Matrix3f dest) {
+        return matrix.get(dest);
+    }
+
+    @Override
+    public org.joml.Matrix4f get(org.joml.Matrix4f dest) {
+        return matrix.get(dest);
+    }
+
+    @Override
+    public AxisAngle4f getRotation(AxisAngle4f dest) {
+        return matrix.getRotation(dest);
+    }
+
+    @Override
+    public Quaternionf getUnnormalizedRotation(Quaternionf dest) {
+        return matrix.getUnnormalizedRotation(dest);
+    }
+
+    @Override
+    public Quaternionf getNormalizedRotation(Quaternionf dest) {
+        return matrix.getNormalizedRotation(dest);
+    }
+
+    @Override
+    public Quaterniond getUnnormalizedRotation(Quaterniond dest) {
+        return matrix.getUnnormalizedRotation(dest);
+    }
+
+    @Override
+    public Quaterniond getNormalizedRotation(Quaterniond dest) {
+        return matrix.getNormalizedRotation(dest);
+    }
+
+    @Override
+    public FloatBuffer get(FloatBuffer buffer) {
+        return matrix.get(buffer);
+    }
+
+    @Override
+    public FloatBuffer get(int index, FloatBuffer buffer) {
+        return matrix.get(index,buffer);
+    }
+
+    @Override
+    public ByteBuffer get(ByteBuffer buffer) {
+        return matrix.get(buffer);
+    }
+
+    @Override
+    public ByteBuffer get(int index, ByteBuffer buffer) {
+        return matrix.get(index,buffer);
+    }
+
+    @Override
+    public FloatBuffer getTransposed(FloatBuffer buffer) {
+        return matrix.getTransposed(buffer);
+    }
+
+    @Override
+    public FloatBuffer getTransposed(int index, FloatBuffer buffer) {
+        return matrix.getTransposed(index,buffer);
+    }
+
+    @Override
+    public ByteBuffer getTransposed(ByteBuffer buffer) {
+        return matrix.getTransposed(buffer);
+    }
+
+    @Override
+    public ByteBuffer getTransposed(int index, ByteBuffer buffer) {
+        return matrix.getTransposed(index,buffer);
+    }
+
+    @Override
+    public Matrix3fc getToAddress(long address) {
+        return matrix.getToAddress(address);
+    }
+
+    @Override
+    public float[] get(float[] arr, int offset) {
+        return matrix.get(arr,offset);
+    }
+
+    @Override
+    public float[] get(float[] arr) {
+        return new float[0];
+    }
+
+    @Override
+    public org.joml.Matrix3f scale(Vector3fc xyz, org.joml.Matrix3f dest) {
+        return matrix.scale(xyz,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f scale(float x, float y, float z, org.joml.Matrix3f dest) {
+        return matrix.scale(x,y,z,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f scale(float xyz, org.joml.Matrix3f dest) {
+        return matrix.scale(xyz,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f scaleLocal(float x, float y, float z, org.joml.Matrix3f dest) {
+        return matrix.scaleLocal(x,y,z,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f transform(org.joml.Vector3f v) {
+        return matrix.transform(v);
+    }
+
+    @Override
+    public org.joml.Vector3f transform(Vector3fc v, org.joml.Vector3f dest) {
+        return matrix.transform(v,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f transform(float x, float y, float z, org.joml.Vector3f dest) {
+        return matrix.transform(x,y,z,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f transformTranspose(org.joml.Vector3f v) {
+        return matrix.transformTranspose(v);
+    }
+
+    @Override
+    public org.joml.Vector3f transformTranspose(Vector3fc v, org.joml.Vector3f dest) {
+        return matrix.transformTranspose(v,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f transformTranspose(float x, float y, float z, org.joml.Vector3f dest) {
+        return matrix.transformTranspose(x,y,z,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateX(float ang, org.joml.Matrix3f dest) {
+        return matrix.rotateX(ang,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateY(float ang, org.joml.Matrix3f dest) {
+        return matrix.rotateY(ang,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateZ(float ang, org.joml.Matrix3f dest) {
+        return matrix.rotateZ(ang,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateXYZ(float angleX, float angleY, float angleZ, org.joml.Matrix3f dest) {
+        return matrix.rotateXYZ(angleX,angleY,angleZ,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateZYX(float angleZ, float angleY, float angleX, org.joml.Matrix3f dest) {
+        return matrix.rotateZYX(angleZ,angleY,angleX,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateYXZ(float angleY, float angleX, float angleZ, org.joml.Matrix3f dest) {
+        return matrix.rotateYXZ(angleY,angleX,angleZ,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotate(float ang, float x, float y, float z, org.joml.Matrix3f dest) {
+        return matrix.rotate(ang,x,y,z,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateLocal(float ang, float x, float y, float z, org.joml.Matrix3f dest) {
+        return matrix.rotateLocal(ang,x,y,z,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateLocalX(float ang, org.joml.Matrix3f dest) {
+        return matrix.rotateLocalX(ang,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateLocalY(float ang, org.joml.Matrix3f dest) {
+        return matrix.rotateLocalY(ang,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateLocalZ(float ang, org.joml.Matrix3f dest) {
+        return matrix.rotateLocalZ(ang,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotate(Quaternionfc quat, org.joml.Matrix3f dest) {
+        return matrix.rotate(quat,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateLocal(Quaternionfc quat, org.joml.Matrix3f dest) {
+        return matrix.rotateLocal(quat,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotate(AxisAngle4f axisAngle, org.joml.Matrix3f dest) {
+        return matrix.rotate(axisAngle,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotate(float angle, Vector3fc axis, org.joml.Matrix3f dest) {
+        return matrix.rotate(angle,axis,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f lookAlong(Vector3fc dir, Vector3fc up, org.joml.Matrix3f dest) {
+        return matrix.lookAlong(dir,up,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f lookAlong(float dirX, float dirY, float dirZ, float upX, float upY, float upZ, org.joml.Matrix3f dest) {
+        return matrix.lookAlong(dirX,dirY,dirZ,upX,upY,upZ,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f getRow(int row, org.joml.Vector3f dest) throws IndexOutOfBoundsException {
+        return matrix.getRow(row,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f getColumn(int column, org.joml.Vector3f dest) throws IndexOutOfBoundsException {
+        return matrix.getColumn(column,dest);
     }
 
     /**
@@ -209,6 +479,91 @@ public class Matrix3f extends BaseMatrix3f {
         throw new ArrayIndexOutOfBoundsException("row/col not in [0..2]");
     }
 
+    @Override
+    public org.joml.Matrix3f normal(org.joml.Matrix3f dest) {
+        return matrix.normal(dest);
+    }
+
+    @Override
+    public org.joml.Vector3f getScale(org.joml.Vector3f dest) {
+        return matrix.getScale(dest);
+    }
+
+    @Override
+    public org.joml.Vector3f positiveZ(org.joml.Vector3f dir) {
+        return matrix.positiveZ(dir);
+    }
+
+    @Override
+    public org.joml.Vector3f normalizedPositiveZ(org.joml.Vector3f dir) {
+        return matrix.normalizedPositiveZ(dir);
+    }
+
+    @Override
+    public org.joml.Vector3f positiveX(org.joml.Vector3f dir) {
+        return matrix.positiveX(dir);
+    }
+
+    @Override
+    public org.joml.Vector3f normalizedPositiveX(org.joml.Vector3f dir) {
+        return matrix.normalizedPositiveX(dir);
+    }
+
+    @Override
+    public org.joml.Vector3f positiveY(org.joml.Vector3f dir) {
+        return matrix.positiveY(dir);
+    }
+
+    @Override
+    public org.joml.Vector3f normalizedPositiveY(org.joml.Vector3f dir) {
+        return matrix.normalizedPositiveY(dir);
+    }
+
+    @Override
+    public org.joml.Matrix3f add(Matrix3fc other, org.joml.Matrix3f dest) {
+        return matrix.add(other,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f sub(Matrix3fc subtrahend, org.joml.Matrix3f dest) {
+        return matrix.sub(subtrahend,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f mulComponentWise(Matrix3fc other, org.joml.Matrix3f dest) {
+        return matrix.mulComponentWise(other,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f lerp(Matrix3fc other, float t, org.joml.Matrix3f dest) {
+        return matrix.lerp(other,t,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateTowards(Vector3fc direction, Vector3fc up, org.joml.Matrix3f dest) {
+        return matrix.rotateTowards(direction,up,dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f rotateTowards(float dirX, float dirY, float dirZ, float upX, float upY, float upZ, org.joml.Matrix3f dest) {
+        return matrix.rotateTowards(dirX,dirY,dirZ,upX,upY,upZ,dest);
+    }
+
+    @Override
+    public org.joml.Vector3f getEulerAnglesZYX(org.joml.Vector3f dest) {
+        return matrix.getEulerAnglesZYX(dest);
+    }
+
+    @Override
+    public org.joml.Matrix3f obliqueZ(float a, float b, org.joml.Matrix3f dest) {
+        return matrix.obliqueZ(a,b,dest);
+    }
+
+    @Override
+    public boolean equals(Matrix3fc m, float delta) {
+        return false;
+    }
+
     /**
      * Sets the specified element of this matrix3f to the value provided.
      * @param row the row number to be modified (zero indexed)
@@ -220,13 +575,13 @@ public class Matrix3f extends BaseMatrix3f {
             case 0:
                 switch (column) {
                     case 0:
-                        this.m00 = value;
+                        matrix.m00(value);
                         break;
                     case 1:
-                        this.m01 = value;
+                        matrix.m01(value);
                         break;
                     case 2:
-                        this.m02 = value;
+                        matrix.m02(value);
                         break;
                     default:
                         throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
@@ -236,13 +591,13 @@ public class Matrix3f extends BaseMatrix3f {
             case 1:
                 switch (column) {
                     case 0:
-                        this.m10 = value;
+                        matrix.m10(value);
                         break;
                     case 1:
-                        this.m11 = value;
+                        matrix.m11(value);
                         break;
                     case 2:
-                        this.m12 = value;
+                        matrix.m12(value);
                         break;
                     default:
                         throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
@@ -252,13 +607,13 @@ public class Matrix3f extends BaseMatrix3f {
             case 2:
                 switch (column) {
                     case 0:
-                        this.m20 = value;
+                        matrix.m20(value);
                         break;
                     case 1:
-                        this.m21 = value;
+                        matrix.m21(value);
                         break;
                     case 2:
-                        this.m22 = value;
+                        matrix.m22(value);
                         break;
                     default:
                         throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
@@ -280,21 +635,21 @@ public class Matrix3f extends BaseMatrix3f {
     public final void setRow(int row, float x, float y, float z) {
         switch (row) {
             case 0:
-                this.m00 = x;
-                this.m01 = y;
-                this.m02 = z;
+                matrix.m00(x);
+                matrix.m01(y);
+                matrix.m02(z);
                 break;
 
             case 1:
-                this.m10 = x;
-                this.m11 = y;
-                this.m12 = z;
+                matrix.m10(x);
+                matrix.m11(y);
+                matrix.m12(z);
                 break;
 
             case 2:
-                this.m20 = x;
-                this.m21 = y;
-                this.m22 = z;
+                matrix.m20(x);
+                matrix.m21(y);
+                matrix.m22(z);
                 break;
 
             default:
@@ -308,28 +663,30 @@ public class Matrix3f extends BaseMatrix3f {
      * @param v the replacement row
      */
     public final void setRow(int row, BaseVector3f v) {
-        switch (row) {
-            case 0:
-                this.m00 = v.getX();
-                this.m01 = v.getY();
-                this.m02 = v.getZ();
-                break;
 
-            case 1:
-                this.m10 = v.getX();
-                this.m11 = v.getY();
-                this.m12 = v.getZ();
-                break;
-
-            case 2:
-                this.m20 = v.getX();
-                this.m21 = v.getY();
-                this.m22 = v.getZ();
-                break;
-
-            default:
-                throw new ArrayIndexOutOfBoundsException("row not in [0..2]");
-        }
+        matrix.setRow(row,v);
+//        switch (row) {
+//            case 0:
+//                this.m00 = v.getX();
+//                this.m01 = v.getY();
+//                this.m02 = v.getZ();
+//                break;
+//
+//            case 1:
+//                this.m10 = v.getX();
+//                this.m11 = v.getY();
+//                this.m12 = v.getZ();
+//                break;
+//
+//            case 2:
+//                this.m20 = v.getX();
+//                this.m21 = v.getY();
+//                this.m22 = v.getZ();
+//                break;
+//
+//            default:
+//                throw new ArrayIndexOutOfBoundsException("row not in [0..2]");
+//        }
     }
 
     /**
@@ -338,28 +695,30 @@ public class Matrix3f extends BaseMatrix3f {
      * @param v the replacement row
      */
     public final void setRow(int row, float[] v) {
-        switch (row) {
-            case 0:
-                this.m00 = v[0];
-                this.m01 = v[1];
-                this.m02 = v[2];
-                break;
-
-            case 1:
-                this.m10 = v[0];
-                this.m11 = v[1];
-                this.m12 = v[2];
-                break;
-
-            case 2:
-                this.m20 = v[0];
-                this.m21 = v[1];
-                this.m22 = v[2];
-                break;
-
-            default:
-                throw new ArrayIndexOutOfBoundsException("row not in [0..2]");
-        }
+        matrix.setRow(row,v[0],v[1],v[2]);
+//
+//        switch (row) {
+//            case 0:
+//                matrix.m00(v[0]);
+//                matrix.m01(v[1]);
+//                matrix.m02(v[2]);
+//                break;
+//
+//            case 1:
+//                matrix.m10(v[0]);
+//                matrix.m11(v[1]);
+//                matrix.m12(v[2]);
+//                break;
+//
+//            case 2:
+//                matrix.m20(v[0]);
+//                matrix.m21(v[1]);
+//                matrix.m22(v[2]);
+//                break;
+//
+//            default:
+//                throw new ArrayIndexOutOfBoundsException("row not in [0..2]");
+//        }
     }
 
     /**
@@ -370,28 +729,30 @@ public class Matrix3f extends BaseMatrix3f {
      * @param z the third row element
      */
     public final void setColumn(int column, float x, float y, float z) {
-        switch (column) {
-            case 0:
-                this.m00 = x;
-                this.m10 = y;
-                this.m20 = z;
-                break;
-
-            case 1:
-                this.m01 = x;
-                this.m11 = y;
-                this.m21 = z;
-                break;
-
-            case 2:
-                this.m02 = x;
-                this.m12 = y;
-                this.m22 = z;
-                break;
-
-            default:
-                throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
-        }
+        matrix.setColumn(column,x,y,z);
+//
+//        switch (column) {
+//            case 0:
+//                this.m00 = x;
+//                this.m10 = y;
+//                this.m20 = z;
+//                break;
+//
+//            case 1:
+//                this.m01 = x;
+//                this.m11 = y;
+//                this.m21 = z;
+//                break;
+//
+//            case 2:
+//                this.m02 = x;
+//                this.m12 = y;
+//                this.m22 = z;
+//                break;
+//
+//            default:
+//                throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
+//        }
     }
 
     /**
@@ -400,28 +761,30 @@ public class Matrix3f extends BaseMatrix3f {
      * @param v the replacement column
      */
     public final void setColumn(int column, Vector3f v) {
-        switch (column) {
-            case 0:
-                this.m00 = v.getX();
-                this.m10 = v.getY();
-                this.m20 = v.getZ();
-                break;
-
-            case 1:
-                this.m01 = v.getX();
-                this.m11 = v.getY();
-                this.m21 = v.getZ();
-                break;
-
-            case 2:
-                this.m02 = v.getX();
-                this.m12 = v.getY();
-                this.m22 = v.getZ();
-                break;
-
-            default:
-                throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
-        }
+        matrix.setColumn(column,v.x,v.y,v.z);
+//
+//        switch (column) {
+//            case 0:
+//                this.m00 = v.getX();
+//                this.m10 = v.getY();
+//                this.m20 = v.getZ();
+//                break;
+//
+//            case 1:
+//                this.m01 = v.getX();
+//                this.m11 = v.getY();
+//                this.m21 = v.getZ();
+//                break;
+//
+//            case 2:
+//                this.m02 = v.getX();
+//                this.m12 = v.getY();
+//                this.m22 = v.getZ();
+//                break;
+//
+//            default:
+//                throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
+//        }
     }
 
     /**
@@ -430,28 +793,30 @@ public class Matrix3f extends BaseMatrix3f {
      * @param v the replacement column
      */
     public final void setColumn(int column, float[] v) {
-        switch (column) {
-            case 0:
-                this.m00 = v[0];
-                this.m10 = v[1];
-                this.m20 = v[2];
-                break;
-
-            case 1:
-                this.m01 = v[0];
-                this.m11 = v[1];
-                this.m21 = v[2];
-                break;
-
-            case 2:
-                this.m02 = v[0];
-                this.m12 = v[1];
-                this.m22 = v[2];
-                break;
-
-            default:
-                throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
-        }
+        matrix.setColumn(column,v[0],v[1],v[2]);
+//
+//        switch (column) {
+//            case 0:
+//                this.m00 = v[0];
+//                this.m10 = v[1];
+//                this.m20 = v[2];
+//                break;
+//
+//            case 1:
+//                this.m01 = v[0];
+//                this.m11 = v[1];
+//                this.m21 = v[2];
+//                break;
+//
+//            case 2:
+//                this.m02 = v[0];
+//                this.m12 = v[1];
+//                this.m22 = v[2];
+//                break;
+//
+//            default:
+//                throw new ArrayIndexOutOfBoundsException("col not in [0..2]");
+//        }
     }
 
     /**
@@ -459,17 +824,19 @@ public class Matrix3f extends BaseMatrix3f {
      * @param scalar  the scalar adder
      */
     public final void add(float scalar) {
-        m00 += scalar;
-        m01 += scalar;
-        m02 += scalar;
-
-        m10 += scalar;
-        m11 += scalar;
-        m12 += scalar;
-
-        m20 += scalar;
-        m21 += scalar;
-        m22 += scalar;
+        matrix.scale(scalar);
+//
+//        m00 += scalar;
+//        m01 += scalar;
+//        m02 += scalar;
+//
+//        m10 += scalar;
+//        m11 += scalar;
+//        m12 += scalar;
+//
+//        m20 += scalar;
+//        m21 += scalar;
+//        m22 += scalar;
 
     }
 
@@ -478,17 +845,19 @@ public class Matrix3f extends BaseMatrix3f {
      * @param m1 the other matrix
      */
     public final void add(BaseMatrix3f m1) {
-        this.m00 += m1.get(0, 0);
-        this.m01 += m1.get(0, 1);
-        this.m02 += m1.get(0, 2);
-
-        this.m10 += m1.get(1, 0);
-        this.m11 += m1.get(1, 1);
-        this.m12 += m1.get(1, 2);
-
-        this.m20 += m1.get(2, 0);
-        this.m21 += m1.get(2, 1);
-        this.m22 += m1.get(2, 2);
+        matrix.add(m1);
+//
+//        this.m00 += m1.get(0, 0);
+//        this.m01 += m1.get(0, 1);
+//        this.m02 += m1.get(0, 2);
+//
+//        this.m10 += m1.get(1, 0);
+//        this.m11 += m1.get(1, 1);
+//        this.m12 += m1.get(1, 2);
+//
+//        this.m20 += m1.get(2, 0);
+//        this.m21 += m1.get(2, 1);
+//        this.m22 += m1.get(2, 2);
     }
 
     /**
@@ -497,36 +866,39 @@ public class Matrix3f extends BaseMatrix3f {
      * @param m1 the other matrix
      */
     public final void sub(BaseMatrix3f m1) {
-        this.m00 -= m1.get(0, 0);
-        this.m01 -= m1.get(0, 1);
-        this.m02 -= m1.get(0, 2);
-
-        this.m10 -= m1.get(1, 0);
-        this.m11 -= m1.get(1, 1);
-        this.m12 -= m1.get(1, 2);
-
-        this.m20 -= m1.get(2, 0);
-        this.m21 -= m1.get(2, 1);
-        this.m22 -= m1.get(2, 2);
+        matrix.sub(m1);
+//        this.m00 -= m1.get(0, 0);
+//        this.m01 -= m1.get(0, 1);
+//        this.m02 -= m1.get(0, 2);
+//
+//        this.m10 -= m1.get(1, 0);
+//        this.m11 -= m1.get(1, 1);
+//        this.m12 -= m1.get(1, 2);
+//
+//        this.m20 -= m1.get(2, 0);
+//        this.m21 -= m1.get(2, 1);
+//        this.m22 -= m1.get(2, 2);
     }
 
     /**
      * Sets the value of this matrix to its transpose.
      */
     public final void transpose() {
-        float temp;
-
-        temp = this.m10;
-        this.m10 = this.m01;
-        this.m01 = temp;
-
-        temp = this.m20;
-        this.m20 = this.m02;
-        this.m02 = temp;
-
-        temp = this.m21;
-        this.m21 = this.m12;
-        this.m12 = temp;
+        matrix.transpose();
+//
+//        float temp;
+//
+//        temp = this.m10;
+//        this.m10 = this.m01;
+//        this.m01 = temp;
+//
+//        temp = this.m20;
+//        this.m20 = this.m02;
+//        this.m02 = temp;
+//
+//        temp = this.m21;
+//        this.m21 = this.m12;
+//        this.m12 = temp;
     }
 
     /**
@@ -534,17 +906,18 @@ public class Matrix3f extends BaseMatrix3f {
      * @param m1 the matrix to be transposed
      */
     public final void transpose(BaseMatrix3f m1) {
-        this.m00 = m1.get(0, 0);
-        this.m01 = m1.get(1, 0);
-        this.m02 = m1.get(2, 0);
-
-        this.m10 = m1.get(0, 1);
-        this.m11 = m1.get(1, 1);
-        this.m12 = m1.get(2, 1);
-
-        this.m20 = m1.get(0, 2);
-        this.m21 = m1.get(1, 2);
-        this.m22 = m1.get(2, 2);
+        matrix.transpose(new org.joml.Matrix3f(m1));
+//        this.m00 = m1.get(0, 0);
+//        this.m01 = m1.get(1, 0);
+//        this.m02 = m1.get(2, 0);
+//
+//        this.m10 = m1.get(0, 1);
+//        this.m11 = m1.get(1, 1);
+//        this.m12 = m1.get(2, 1);
+//
+//        this.m20 = m1.get(0, 2);
+//        this.m21 = m1.get(1, 2);
+//        this.m22 = m1.get(2, 2);
     }
 
 
@@ -554,17 +927,19 @@ public class Matrix3f extends BaseMatrix3f {
      * @param q1 the quaternion to be converted
      */
     public final void set(BaseQuat4f q1) {
-        this.m00 = (float) (1.0 - 2.0 * q1.getY() * q1.getY() - 2.0 * q1.getZ() * q1.getZ());
-        this.m10 = (float) (2.0 * (q1.getX() * q1.getY() + q1.getW() * q1.getZ()));
-        this.m20 = (float) (2.0 * (q1.getX() * q1.getZ() - q1.getW() * q1.getY()));
-
-        this.m01 = (float) (2.0 * (q1.getX() * q1.getY() - q1.getW() * q1.getZ()));
-        this.m11 = (float) (1.0 - 2.0 * q1.getX() * q1.getX() - 2.0 * q1.getZ() * q1.getZ());
-        this.m21 = (float) (2.0 * (q1.getY() * q1.getZ() + q1.getW() * q1.getX()));
-
-        this.m02 = (float) (2.0 * (q1.getX() * q1.getZ() + q1.getW() * q1.getY()));
-        this.m12 = (float) (2.0 * (q1.getY() * q1.getZ() - q1.getW() * q1.getX()));
-        this.m22 = (float) (1.0 - 2.0 * q1.getX() * q1.getX() - 2.0 * q1.getY() * q1.getY());
+        matrix.set(q1);
+//
+//        this.m00 = (float) (1.0 - 2.0 * q1.getY() * q1.getY() - 2.0 * q1.getZ() * q1.getZ());
+//        this.m10 = (float) (2.0 * (q1.getX() * q1.getY() + q1.getW() * q1.getZ()));
+//        this.m20 = (float) (2.0 * (q1.getX() * q1.getZ() - q1.getW() * q1.getY()));
+//
+//        this.m01 = (float) (2.0 * (q1.getX() * q1.getY() - q1.getW() * q1.getZ()));
+//        this.m11 = (float) (1.0 - 2.0 * q1.getX() * q1.getX() - 2.0 * q1.getZ() * q1.getZ());
+//        this.m21 = (float) (2.0 * (q1.getY() * q1.getZ() + q1.getW() * q1.getX()));
+//
+//        this.m02 = (float) (2.0 * (q1.getX() * q1.getZ() + q1.getW() * q1.getY()));
+//        this.m12 = (float) (2.0 * (q1.getY() * q1.getZ() - q1.getW() * q1.getX()));
+//        this.m22 = (float) (1.0 - 2.0 * q1.getX() * q1.getX() - 2.0 * q1.getY() * q1.getY());
     }
 
     /**
@@ -573,17 +948,18 @@ public class Matrix3f extends BaseMatrix3f {
      * @param m1 the source matrix3d
      */
     public final void set(BaseMatrix3f m1) {
-        this.m00 = m1.get(0, 0);
-        this.m01 = m1.get(0, 1);
-        this.m02 = m1.get(0, 2);
-
-        this.m10 = m1.get(1, 0);
-        this.m11 = m1.get(1, 1);
-        this.m12 = m1.get(1, 2);
-
-        this.m20 = m1.get(2, 0);
-        this.m21 = m1.get(2, 1);
-        this.m22 = m1.get(2, 2);
+        matrix.set(m1);
+//        this.m00 = m1.get(0, 0);
+//        this.m01 = m1.get(0, 1);
+//        this.m02 = m1.get(0, 2);
+//
+//        this.m10 = m1.get(1, 0);
+//        this.m11 = m1.get(1, 1);
+//        this.m12 = m1.get(1, 2);
+//
+//        this.m20 = m1.get(2, 0);
+//        this.m21 = m1.get(2, 1);
+//        this.m22 = m1.get(2, 2);
     }
 
     /**
@@ -593,17 +969,19 @@ public class Matrix3f extends BaseMatrix3f {
      *  @param m  the float precision array of length 9
      */
     public final void set(float[] m) {
-        m00 = m[0];
-        m01 = m[1];
-        m02 = m[2];
-
-        m10 = m[3];
-        m11 = m[4];
-        m12 = m[5];
-
-        m20 = m[6];
-        m21 = m[7];
-        m22 = m[8];
+        matrix.set(m);
+//
+//        m00 = m[0];
+//        m01 = m[1];
+//        m02 = m[2];
+//
+//        m10 = m[3];
+//        m11 = m[4];
+//        m12 = m[5];
+//
+//        m20 = m[6];
+//        m21 = m[7];
+//        m22 = m[8];
 
     }
 
@@ -613,17 +991,19 @@ public class Matrix3f extends BaseMatrix3f {
      * @param scale the scale factor for the matrix
      */
     public final void set(float scale) {
-        this.m00 = scale;
-        this.m01 = 0;
-        this.m02 = 0;
-
-        this.m10 = 0;
-        this.m11 = scale;
-        this.m12 = 0;
-
-        this.m20 = 0;
-        this.m21 = 0;
-        this.m22 = scale;
+        matrix.identity().scale(scale);
+//
+//        this.m00 = scale;
+//        this.m01 = 0;
+//        this.m02 = 0;
+//
+//        this.m10 = 0;
+//        this.m11 = scale;
+//        this.m12 = 0;
+//
+//        this.m20 = 0;
+//        this.m21 = 0;
+//        this.m22 = scale;
     }
 
     /**
@@ -632,23 +1012,24 @@ public class Matrix3f extends BaseMatrix3f {
      * @param angle the angle to rotate about the X axis in radians
      */
     public final void setRotX(float angle) {
+
         float sinAngle;
         float cosAngle;
 
         sinAngle = (float) (Math.sin(angle));
         cosAngle = (float) (Math.cos(angle));
 
-        this.m00 = 1;
-        this.m01 = 0;
-        this.m02 = 0;
+        matrix.m00(1);
+        matrix.m01(0);
+        matrix.m02(0);
 
-        this.m10 = 0;
-        this.m11 = cosAngle;
-        this.m12 = -sinAngle;
+        matrix.m10(0);
+        matrix.m11(cosAngle);
+        matrix.m12(-sinAngle);
 
-        this.m20 = 0;
-        this.m21 = sinAngle;
-        this.m22 = cosAngle;
+        matrix.m20(0);
+        matrix.m21(sinAngle);
+        matrix.m22(cosAngle);
     }
 
     /**
@@ -663,17 +1044,17 @@ public class Matrix3f extends BaseMatrix3f {
         sinAngle = (float) (Math.sin(angle));
         cosAngle = (float) (Math.cos(angle));
 
-        this.m00 = cosAngle;
-        this.m01 = 0;
-        this.m02 = sinAngle;
+        matrix.m00(cosAngle);
+        matrix.m01(0);
+        matrix.m02(sinAngle);
 
-        this.m10 = 0;
-        this.m11 = 1;
-        this.m12 = 0;
+        matrix.m10(0);
+        matrix.m11(1);
+        matrix.m12(0);
 
-        this.m20 = -sinAngle;
-        this.m21 = 0;
-        this.m22 = cosAngle;
+        matrix.m20(-sinAngle);
+        matrix.m21(0);
+        matrix.m22(cosAngle);
     }
 
     /**
@@ -688,17 +1069,17 @@ public class Matrix3f extends BaseMatrix3f {
         sinAngle = (float) (Math.sin(angle));
         cosAngle = (float) (Math.cos(angle));
 
-        this.m00 = cosAngle;
-        this.m01 = -sinAngle;
-        this.m02 = 0;
+        matrix.m00(cosAngle);
+        matrix.m01(-sinAngle);
+        matrix.m02(0);
 
-        this.m10 = sinAngle;
-        this.m11 = cosAngle;
-        this.m12 = 0;
+        matrix.m10(sinAngle);
+        matrix.m11(cosAngle);
+        matrix.m12(0);
 
-        this.m20 = 0;
-        this.m21 = 0;
-        this.m22 = 1;
+        matrix.m20(0);
+        matrix.m21(0);
+        matrix.m22(1);
     }
 
     /**
@@ -706,17 +1087,19 @@ public class Matrix3f extends BaseMatrix3f {
       * @param scalar  The scalar multiplier.
       */
     public final void mul(float scalar) {
-        m00 *= scalar;
-        m01 *= scalar;
-        m02 *= scalar;
-
-        m10 *= scalar;
-        m11 *= scalar;
-        m12 *= scalar;
-
-        m20 *= scalar;
-        m21 *= scalar;
-        m22 *= scalar;
+        matrix.scale(scalar);
+//
+//        m00 *= scalar;
+//        m01 *= scalar;
+//        m02 *= scalar;
+//
+//        m10 *= scalar;
+//        m11 *= scalar;
+//        m12 *= scalar;
+//
+//        m20 *= scalar;
+//        m21 *= scalar;
+//        m22 *= scalar;
 
     }
 
@@ -726,54 +1109,56 @@ public class Matrix3f extends BaseMatrix3f {
       * @param m1 the other matrix
       */
     public final void mul(BaseMatrix3f m1) {
-        float lm00;
-        float lm01;
-        float lm02;
-        float lm10;
-        float lm11;
-        float lm12;
-        float lm20;
-        float lm21;
-        float lm22;
-
-        lm00 = this.m00 * m1.get(0, 0) + this.m01 * m1.get(1, 0) + this.m02 * m1.get(2, 0);
-        lm01 = this.m00 * m1.get(0, 1) + this.m01 * m1.get(1, 1) + this.m02 * m1.get(2, 1);
-        lm02 = this.m00 * m1.get(0, 2) + this.m01 * m1.get(1, 2) + this.m02 * m1.get(2, 2);
-
-        lm10 = this.m10 * m1.get(0, 0) + this.m11 * m1.get(1, 0) + this.m12 * m1.get(2, 0);
-        lm11 = this.m10 * m1.get(0, 1) + this.m11 * m1.get(1, 1) + this.m12 * m1.get(2, 1);
-        lm12 = this.m10 * m1.get(0, 2) + this.m11 * m1.get(1, 2) + this.m12 * m1.get(2, 2);
-
-        lm20 = this.m20 * m1.get(0, 0) + this.m21 * m1.get(1, 0) + this.m22 * m1.get(2, 0);
-        lm21 = this.m20 * m1.get(0, 1) + this.m21 * m1.get(1, 1) + this.m22 * m1.get(2, 1);
-        lm22 = this.m20 * m1.get(0, 2) + this.m21 * m1.get(1, 2) + this.m22 * m1.get(2, 2);
-
-        this.m00 = lm00;
-        this.m01 = lm01;
-        this.m02 = lm02;
-        this.m10 = lm10;
-        this.m11 = lm11;
-        this.m12 = lm12;
-        this.m20 = lm20;
-        this.m21 = lm21;
-        this.m22 = lm22;
+        matrix.mul(m1);
+//        float lm00;
+//        float lm01;
+//        float lm02;
+//        float lm10;
+//        float lm11;
+//        float lm12;
+//        float lm20;
+//        float lm21;
+//        float lm22;
+//
+//        lm00 = this.m00 * m1.get(0, 0) + this.m01 * m1.get(1, 0) + this.m02 * m1.get(2, 0);
+//        lm01 = this.m00 * m1.get(0, 1) + this.m01 * m1.get(1, 1) + this.m02 * m1.get(2, 1);
+//        lm02 = this.m00 * m1.get(0, 2) + this.m01 * m1.get(1, 2) + this.m02 * m1.get(2, 2);
+//
+//        lm10 = this.m10 * m1.get(0, 0) + this.m11 * m1.get(1, 0) + this.m12 * m1.get(2, 0);
+//        lm11 = this.m10 * m1.get(0, 1) + this.m11 * m1.get(1, 1) + this.m12 * m1.get(2, 1);
+//        lm12 = this.m10 * m1.get(0, 2) + this.m11 * m1.get(1, 2) + this.m12 * m1.get(2, 2);
+//
+//        lm20 = this.m20 * m1.get(0, 0) + this.m21 * m1.get(1, 0) + this.m22 * m1.get(2, 0);
+//        lm21 = this.m20 * m1.get(0, 1) + this.m21 * m1.get(1, 1) + this.m22 * m1.get(2, 1);
+//        lm22 = this.m20 * m1.get(0, 2) + this.m21 * m1.get(1, 2) + this.m22 * m1.get(2, 2);
+//
+//        this.m00 = lm00;
+//        this.m01 = lm01;
+//        this.m02 = lm02;
+//        this.m10 = lm10;
+//        this.m11 = lm11;
+//        this.m12 = lm12;
+//        this.m20 = lm20;
+//        this.m21 = lm21;
+//        this.m22 = lm22;
     }
 
     /**
      * Sets this matrix to all zeros.
      */
     public final void setZero() {
-        m00 = 0;
-        m01 = 0;
-        m02 = 0;
-
-        m10 = 0;
-        m11 = 0;
-        m12 = 0;
-
-        m20 = 0;
-        m21 = 0;
-        m22 = 0;
+        matrix.zero();
+//        m00 = 0;
+//        m01 = 0;
+//        m02 = 0;
+//
+//        m10 = 0;
+//        m11 = 0;
+//        m12 = 0;
+//
+//        m20 = 0;
+//        m21 = 0;
+//        m22 = 0;
 
     }
 
@@ -781,17 +1166,19 @@ public class Matrix3f extends BaseMatrix3f {
      * Negates the value of this matrix: this = -this.
      */
     public final void negate() {
-        this.m00 = -this.m00;
-        this.m01 = -this.m01;
-        this.m02 = -this.m02;
-
-        this.m10 = -this.m10;
-        this.m11 = -this.m11;
-        this.m12 = -this.m12;
-
-        this.m20 = -this.m20;
-        this.m21 = -this.m21;
-        this.m22 = -this.m22;
+        matrix.scale(-1.0f);
+//
+//        this.m00 = -this.m00;
+//        this.m01 = -this.m01;
+//        this.m02 = -this.m02;
+//
+//        this.m10 = -this.m10;
+//        this.m11 = -this.m11;
+//        this.m12 = -this.m12;
+//
+//        this.m20 = -this.m20;
+//        this.m21 = -this.m21;
+//        this.m22 = -this.m22;
     }
 
     /**
@@ -799,42 +1186,44 @@ public class Matrix3f extends BaseMatrix3f {
      * @throws IllegalStateException if the matrix is not invertible
      */
     public void invert() {
-        double determinant = this.determinant();
-
-        if (determinant != 0) {
-            /* do it the ordinary way
-             *
-             * inv(A) = 1/det(A) * adj(T), where adj(T) = transpose(Conjugate Matrix)
-             *
-             * m00 m01 m02
-             * m10 m11 m12
-             * m20 m21 m22
-             */
-            double determinantInv = 1 / determinant;
-
-            // get the conjugate matrix
-            double t00 = this.m11 * this.m22 - this.m12 * this.m21;
-            double t01 = -this.m10 * this.m22 + this.m12 * this.m20;
-            double t02 = this.m10 * this.m21 - this.m11 * this.m20;
-            double t10 = -this.m01 * this.m22 + this.m02 * this.m21;
-            double t11 = this.m00 * this.m22 - this.m02 * this.m20;
-            double t12 = -this.m00 * this.m21 + this.m01 * this.m20;
-            double t20 = this.m01 * this.m12 - this.m02 * this.m11;
-            double t21 = -this.m00 * this.m12 + this.m02 * this.m10;
-            double t22 = this.m00 * this.m11 - this.m01 * this.m10;
-
-            m00 = (float) (t00 * determinantInv);
-            m11 = (float) (t11 * determinantInv);
-            m22 = (float) (t22 * determinantInv);
-            m01 = (float) (t10 * determinantInv);
-            m10 = (float) (t01 * determinantInv);
-            m20 = (float) (t02 * determinantInv);
-            m02 = (float) (t20 * determinantInv);
-            m12 = (float) (t21 * determinantInv);
-            m21 = (float) (t12 * determinantInv);
-        } else {
-            throw new IllegalStateException("matrix is not invertible");
-        }
+        matrix.invert();
+//
+//        double determinant = this.determinant();
+//
+//        if (determinant != 0) {
+//            /* do it the ordinary way
+//             *
+//             * inv(A) = 1/det(A) * adj(T), where adj(T) = transpose(Conjugate Matrix)
+//             *
+//             * m00 m01 m02
+//             * m10 m11 m12
+//             * m20 m21 m22
+//             */
+//            double determinantInv = 1 / determinant;
+//
+//            // get the conjugate matrix
+//            double t00 = this.m11 * this.m22 - this.m12 * this.m21;
+//            double t01 = -this.m10 * this.m22 + this.m12 * this.m20;
+//            double t02 = this.m10 * this.m21 - this.m11 * this.m20;
+//            double t10 = -this.m01 * this.m22 + this.m02 * this.m21;
+//            double t11 = this.m00 * this.m22 - this.m02 * this.m20;
+//            double t12 = -this.m00 * this.m21 + this.m01 * this.m20;
+//            double t20 = this.m01 * this.m12 - this.m02 * this.m11;
+//            double t21 = -this.m00 * this.m12 + this.m02 * this.m10;
+//            double t22 = this.m00 * this.m11 - this.m01 * this.m10;
+//
+//            m00 = (float) (t00 * determinantInv);
+//            m11 = (float) (t11 * determinantInv);
+//            m22 = (float) (t22 * determinantInv);
+//            m01 = (float) (t10 * determinantInv);
+//            m10 = (float) (t01 * determinantInv);
+//            m20 = (float) (t02 * determinantInv);
+//            m02 = (float) (t20 * determinantInv);
+//            m12 = (float) (t21 * determinantInv);
+//            m21 = (float) (t12 * determinantInv);
+//        } else {
+//            throw new IllegalStateException("matrix is not invertible");
+//        }
     }
 
     /**
@@ -842,16 +1231,18 @@ public class Matrix3f extends BaseMatrix3f {
     * @param buffer to append results to
     */
     public void appendToBuffer(FloatBuffer fb){
-      fb.put(m00);
-      fb.put(m01);
-      fb.put(m02);
-      fb.put(m10);
-      fb.put(m11);
-      fb.put(m12);
-      fb.put(m20);
-      fb.put(m21);
-      fb.put(m22);
-      fb.flip();
+        matrix.get(fb);
+//
+//      fb.put(m00);
+//      fb.put(m01);
+//      fb.put(m02);
+//      fb.put(m10);
+//      fb.put(m11);
+//      fb.put(m12);
+//      fb.put(m20);
+//      fb.put(m21);
+//      fb.put(m22);
+//      fb.flip();
     }
 
     /**
@@ -860,58 +1251,61 @@ public class Matrix3f extends BaseMatrix3f {
      * @param t  the tuple to be multiplied by this matrix and then replaced
      */
     public final void transform(Vector3f t) {
-        float x;
-        float y;
-        float z;
-        x = m00 * t.getX() + m01 * t.getY() + m02 * t.getZ();
-        y = m10 * t.getX() + m11 * t.getY() + m12 * t.getZ();
-        z = m20 * t.getX() + m21 * t.getY() + m22 * t.getZ();
-        t.set(x, y, z);
+        matrix.transform(new org.joml.Vector3f(t));
+
+//        float x;
+//        float y;
+//        float z;
+//        x = m00 * t.getX() + m01 * t.getY() + m02 * t.getZ();
+//        y = m10 * t.getX() + m11 * t.getY() + m12 * t.getZ();
+//        z = m20 * t.getX() + m21 * t.getY() + m22 * t.getZ();
+//        t.set(x, y, z);
     }
+
 
     @Override
     public final float getM00() {
-        return m00;
+        return this.m00();
     }
 
     @Override
     public final float getM01() {
-        return m01;
+        return this.m01();
     }
 
     @Override
     public final float getM02() {
-        return m02;
+        return this.m02();
     }
 
     @Override
     public final float getM10() {
-        return m10;
+        return this.m10();
     }
 
     @Override
     public final float getM11() {
-        return m11;
+        return this.m11();
     }
 
     @Override
     public final float getM12() {
-        return m12;
+        return this.m12();
     }
 
     @Override
     public final float getM20() {
-        return m20;
+        return this.m20();
     }
 
     @Override
     public final float getM21() {
-        return m21;
+        return this.m21();
     }
 
     @Override
     public final float getM22() {
-        return m22;
+        return this.m22();
     }
 
 

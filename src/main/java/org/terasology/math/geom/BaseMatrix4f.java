@@ -16,13 +16,13 @@
 
 package org.terasology.math.geom;
 
-import java.util.Locale;
+import org.joml.Matrix4fc;
 
 /**
  * Defines a 4x4 float matrix 
  * @author auto-generated
  */
-public abstract class BaseMatrix4f {
+public abstract class BaseMatrix4f implements Matrix4fc {
 
     /**
      * The immutable identity matrix
@@ -487,7 +487,7 @@ public abstract class BaseMatrix4f {
      * Copies the matrix values into the array parameter.
      * @param v the array into which the matrix values will be copied
      */
-    public final void get(float[] v) {
+    public final float[] get(float[] v) {
         v[0] = getM00();
         v[1] = getM01();
         v[2] = getM02();
@@ -504,65 +504,66 @@ public abstract class BaseMatrix4f {
         v[13] = getM31();
         v[14] = getM32();
         v[15] = getM33();
+        return v;
     }
 
-    /**
-      * Returns a string that contains the values of this Matrix3d.
-      * @return the String representation
-      */
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        Locale locale = Locale.ROOT;
-        String fmt = "%6.2f";
-        String colSep = ", ";
-        String rowStart = "[";
-        String rowEnd = "]";
-        String newLine = "\n";
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM00()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM01()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM02()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM03()));
-        sb.append(rowEnd);
-        sb.append(newLine);
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM10()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM11()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM12()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM13()));
-        sb.append(rowEnd);
-        sb.append(newLine);
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM20()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM21()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM22()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM23()));
-        sb.append(rowEnd);
-        sb.append(newLine);
-
-        sb.append(rowStart);
-        sb.append(String.format(locale, fmt, getM30()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM31()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM32()));
-        sb.append(colSep);
-        sb.append(String.format(locale, fmt, getM33()));
-        sb.append(rowEnd);
-
-        return sb.toString();
-    }
+//    /**
+//      * Returns a string that contains the values of this Matrix3d.
+//      * @return the String representation
+//      */
+//    @Override
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        Locale locale = Locale.ROOT;
+//        String fmt = "%6.2f";
+//        String colSep = ", ";
+//        String rowStart = "[";
+//        String rowEnd = "]";
+//        String newLine = "\n";
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM00()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM01()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM02()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM03()));
+//        sb.append(rowEnd);
+//        sb.append(newLine);
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM10()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM11()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM12()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM13()));
+//        sb.append(rowEnd);
+//        sb.append(newLine);
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM20()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM21()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM22()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM23()));
+//        sb.append(rowEnd);
+//        sb.append(newLine);
+//
+//        sb.append(rowStart);
+//        sb.append(String.format(locale, fmt, getM30()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM31()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM32()));
+//        sb.append(colSep);
+//        sb.append(String.format(locale, fmt, getM33()));
+//        sb.append(rowEnd);
+//
+//        return sb.toString();
+//    }
 }

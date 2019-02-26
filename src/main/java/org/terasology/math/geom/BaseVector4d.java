@@ -17,12 +17,14 @@
 package org.terasology.math.geom;
 
 import com.google.common.base.Preconditions;
+import org.joml.Vector3dc;
+import org.joml.Vector4dc;
 
 /**
  * A vector/point in 4D space
  * @author auto-generated
  */
-public abstract class BaseVector4d {
+public abstract class BaseVector4d implements Vector4dc {
 
     /**
      * An immutable instance with all components set to 0

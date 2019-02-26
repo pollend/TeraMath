@@ -1,11 +1,11 @@
 /*
- * Copyright 2019 MovingBlocks
+ * Copyright 2018 MovingBlocks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *  http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,8 +17,13 @@
 package org.terasology.math.geom;
 
 import java.math.RoundingMode;
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
 
 import com.google.common.math.DoubleMath;
+import org.joml.Vector2ic;
+import org.joml.Vector3ic;
+import org.joml.internal.MemUtil;
 
 /**
  * Vector3i is the mutable implementation of BaseVector3i, for representing points or vectors in 3 dimensional space of type
@@ -28,20 +33,32 @@ import com.google.common.math.DoubleMath;
  */
 public class Vector3i extends BaseVector3i {
 
-    public int x;
-    public int y;
-    public int z;
-
     /**
-     * Default constructor - all components are set to 0
+     * Create a new {@link org.joml.Vector3i} of <code>(0, 0, 0)</code>.
      */
     public Vector3i() {
     }
 
     /**
-     * @param x the x component
-     * @param y the y component
-     * @param z the z component
+     * Create a new {@link org.joml.Vector3i} and initialize all three components with
+     * the given value.
+     *
+     * @param d
+     *          the value of all three components
+     */
+    public Vector3i(int d) {
+        this(d, d, d);
+    }
+
+    /**
+     * Create a new {@link org.joml.Vector3i} with the given component values.
+     *
+     * @param x
+     *          the value of x
+     * @param y
+     *          the value of y
+     * @param z
+     *          the value of z
      */
     public Vector3i(int x, int y, int z) {
         this.x = x;
@@ -50,94 +67,210 @@ public class Vector3i extends BaseVector3i {
     }
 
     /**
-     * Copy constructor
-     * @param other The BaseVector3i to copy.
+     * Create a new {@link org.joml.Vector3i} with the same values as <code>v</code>.
+     *
+     * @param v
+     *          the {@link Vector3ic} to copy the values from
      */
-    public Vector3i(BaseVector3i other) {
-        this(other.getX(), other.getY(), other.getZ());
-    }
-
-
-    /**
-     * @param x the x component
-     * @param y the y component
-     * @param z the z component
-     */
-    public Vector3i(float x, float y, float z) {
-        this(DoubleMath.roundToInt(x, RoundingMode.FLOOR),
-            DoubleMath.roundToInt(y, RoundingMode.FLOOR),
-            DoubleMath.roundToInt(z, RoundingMode.FLOOR));
+    public Vector3i(Vector3ic v) {
+        this(v.x(), v.y(), v.z());
     }
 
     /**
-     * Constructs the integer version of a floating-point vector by flooring it
-     * @param vector The vector to copy.
+     * Create a new {@link org.joml.Vector3i} with the first two components from the
+     * given <code>v</code> and the given <code>z</code>
+     *
+     * @param v
+     *          the {@link Vector2ic} to copy the values from
+     * @param z
+     *          the z component
      */
-    public Vector3i(BaseVector3f vector) {
-        this(DoubleMath.roundToInt(vector.getX(), RoundingMode.FLOOR),
-            DoubleMath.roundToInt(vector.getY(), RoundingMode.FLOOR),
-            DoubleMath.roundToInt(vector.getZ(), RoundingMode.FLOOR));
+    public Vector3i(Vector2ic v, int z) {
+        this(v.x(), v.y(), z);
     }
 
     /**
-     * Constructs the integer version of a floating-point vector by rounding it
-     * @param vector The vector to copy.
-     * @param rm the rounding mode
+     * Create a new {@link org.joml.Vector3i} and read this vector from the supplied
+     * {@link ByteBuffer} at the current buffer
+     * {@link ByteBuffer#position() position}.
+     * <p>
+     * This method will not increment the position of the given ByteBuffer.
+     * <p>
+     * In order to specify the offset into the ByteBuffer at which the vector is
+     * read, use {@link #Vector3i(int, ByteBuffer)}, taking the absolute
+     * position as parameter.
+     *
+     * @see #Vector3i(int, ByteBuffer)
+     *
+     * @param buffer
+     *          values will be read in <code>x, y, z</code> order
      */
-    public Vector3i(BaseVector3f vector, RoundingMode rm) {
-        this(DoubleMath.roundToInt(vector.getX(), rm), DoubleMath.roundToInt(vector.getY(), rm), DoubleMath.roundToInt(vector.getZ(), rm));
+    public Vector3i(ByteBuffer buffer) {
+        this(buffer.position(), buffer);
     }
 
     /**
-     * Constructs the integer version of a floating-point vector by rounding it
-     * @param vector The vector to copy.
-     * @param offset the offset to add to all components
-     * @deprecated specify a rounding mode instead
+     * Create a new {@link org.joml.Vector3i} and read this vector from the supplied
+     * {@link ByteBuffer} starting at the specified absolute buffer
+     * position/index.
+     * <p>
+     * This method will not increment the position of the given ByteBuffer.
+     *
+     * @param index
+     *          the absolute position into the ByteBuffer
+     * @param buffer
+     *          values will be read in <code>x, y, z</code> order
      */
-    @Deprecated
-    public Vector3i(BaseVector3f vector, double offset) {
-        this(DoubleMath.roundToInt(vector.getX() + offset, RoundingMode.FLOOR),
-            DoubleMath.roundToInt(vector.getY() + offset, RoundingMode.FLOOR),
-            DoubleMath.roundToInt(vector.getZ() + offset, RoundingMode.FLOOR));
+    public Vector3i(int index, ByteBuffer buffer) {
+        MemUtil.INSTANCE.get(this, index, buffer);
     }
 
     /**
-     * A new vector with all entries explicitly set to zero
+     * Create a new {@link org.joml.Vector3i} and read this vector from the supplied
+     * {@link IntBuffer} at the current buffer
+     * {@link IntBuffer#position() position}.
+     * <p>
+     * This method will not increment the position of the given IntBuffer.
+     * <p>
+     * In order to specify the offset into the IntBuffer at which the vector is
+     * read, use {@link #Vector3i(int, IntBuffer)}, taking the absolute position
+     * as parameter.
+     *
+     * @see #Vector3i(int, IntBuffer)
+     *
+     * @param buffer
+     *          values will be read in <code>x, y, z</code> order
      */
-    public static Vector3i zero() {
-        return new Vector3i(0, 0, 0);
+    public Vector3i(IntBuffer buffer) {
+        this(buffer.position(), buffer);
     }
 
     /**
-     * A new vector with all entries explicitly set to one
+     * Create a new {@link org.joml.Vector3i} and read this vector from the supplied
+     * {@link IntBuffer} starting at the specified absolute buffer
+     * position/index.
+     * <p>
+     * This method will not increment the position of the given IntBuffer.
+     *
+     * @param index
+     *          the absolute position into the IntBuffer
+     * @param buffer
+     *          values will be read in <code>x, y, z</code> order
      */
-    public static Vector3i one() {
-        return new Vector3i(1, 1, 1);
+    public Vector3i(int index, IntBuffer buffer) {
+        MemUtil.INSTANCE.get(this, index, buffer);
     }
 
-    public static Vector3i north() {
-        return new Vector3i(0, 0, 1);
-    }
+//    public int x;
+//    public int y;
+//    public int z;
+//
+//    /**
+//     * Default constructor - all components are set to 0
+//     */
+//    public Vector3i() {
+//    }
+//
+//    /**
+//     * @param x the x component
+//     * @param y the y component
+//     * @param z the z component
+//     */
+//    public Vector3i(int x, int y, int z) {
+//        this.x = x;
+//        this.y = y;
+//        this.z = z;
+//    }
+//
+//    /**
+//     * Copy constructor
+//     * @param other The BaseVector3i to copy.
+//     */
+//    public Vector3i(BaseVector3i other) {
+//        this(other.getX(), other.getY(), other.getZ());
+//    }
+//
+//
+//    /**
+//     * @param x the x component
+//     * @param y the y component
+//     * @param z the z component
+//     */
+//    public Vector3i(float x, float y, float z) {
+//        this(DoubleMath.roundToInt(x, RoundingMode.FLOOR),
+//            DoubleMath.roundToInt(y, RoundingMode.FLOOR),
+//            DoubleMath.roundToInt(z, RoundingMode.FLOOR));
+//    }
+//
+//    /**
+//     * Constructs the integer version of a floating-point vector by flooring it
+//     * @param vector The vector to copy.
+//     */
+//    public Vector3i(BaseVector3f vector) {
+//        this(DoubleMath.roundToInt(vector.getX(), RoundingMode.FLOOR),
+//            DoubleMath.roundToInt(vector.getY(), RoundingMode.FLOOR),
+//            DoubleMath.roundToInt(vector.getZ(), RoundingMode.FLOOR));
+//    }
+//
+//    /**
+//     * Constructs the integer version of a floating-point vector by rounding it
+//     * @param vector The vector to copy.
+//     * @param rm the rounding mode
+//     */
+//    public Vector3i(BaseVector3f vector, RoundingMode rm) {
+//        this(DoubleMath.roundToInt(vector.getX(), rm), DoubleMath.roundToInt(vector.getY(), rm), DoubleMath.roundToInt(vector.getZ(), rm));
+//    }
+//
+//    /**
+//     * Constructs the integer version of a floating-point vector by rounding it
+//     * @param vector The vector to copy.
+//     * @param offset the offset to add to all components
+//     * @deprecated specify a rounding mode instead
+//     */
+//    @Deprecated
+//    public Vector3i(BaseVector3f vector, double offset) {
+//        this(DoubleMath.roundToInt(vector.getX() + offset, RoundingMode.FLOOR),
+//            DoubleMath.roundToInt(vector.getY() + offset, RoundingMode.FLOOR),
+//            DoubleMath.roundToInt(vector.getZ() + offset, RoundingMode.FLOOR));
+//    }
 
-    public static Vector3i south() {
-        return new Vector3i(0, 0, -1);
-    }
-
-    public static Vector3i west() {
-        return new Vector3i(1, 0, 0);
-    }
-
-    public static Vector3i east() {
-        return new Vector3i(-1, 0, 0);
-    }
-
-    public static Vector3i up() {
-        return new Vector3i(0, 1, 0);
-    }
-
-    public static Vector3i down() {
-        return new Vector3i(0, -1, 0);
-    }
+//    /**
+//     * A new vector with all entries explicitly set to zero
+//     */
+//    public static Vector3i zero() {
+//        return new Vector3i(0, 0, 0);
+//    }
+//
+//    /**
+//     * A new vector with all entries explicitly set to one
+//     */
+//    public static Vector3i one() {
+//        return new Vector3i(1, 1, 1);
+//    }
+//
+//    public static Vector3i north() {
+//        return new Vector3i(0, 0, 1);
+//    }
+//
+//    public static Vector3i south() {
+//        return new Vector3i(0, 0, -1);
+//    }
+//
+//    public static Vector3i west() {
+//        return new Vector3i(1, 0, 0);
+//    }
+//
+//    public static Vector3i east() {
+//        return new Vector3i(-1, 0, 0);
+//    }
+//
+//    public static Vector3i up() {
+//        return new Vector3i(0, 1, 0);
+//    }
+//
+//    public static Vector3i down() {
+//        return new Vector3i(0, -1, 0);
+//    }
 
     @Override
     public int getX() {

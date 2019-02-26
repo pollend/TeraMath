@@ -25,7 +25,7 @@ import com.google.common.base.Preconditions;
  * A vector/point in 3D space
  * @author auto-generated
  */
-public abstract class BaseVector3i {
+public abstract class BaseVector3i extends org.joml.Vector3i{
 
     /**
      * An immutable instance with all components set to 0
@@ -93,12 +93,12 @@ public abstract class BaseVector3i {
     }
 
 
-    /**
-     * @return the squared distance to the origin
-     */
-    public int lengthSquared() {
-        return getX() * getX() + getY() * getY() + getZ() * getZ();
-    }
+//    /**
+//     * @return the squared distance to the origin
+//     */
+//    public int lengthSquared() {
+//        return getX() * getX() + getY() * getY() + getZ() * getZ();
+//    }
 
    /**
     *   Returns the angle in radians between this vector and the vector

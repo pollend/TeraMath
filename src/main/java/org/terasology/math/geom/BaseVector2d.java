@@ -17,12 +17,13 @@
 package org.terasology.math.geom;
 
 import com.google.common.base.Preconditions;
+import org.joml.Vector3dc;
 
 /**
  * A vector/point in 2D space
  * @author auto-generated
  */
-public abstract class BaseVector2d {
+public abstract class BaseVector2d implements Vector3dc {
 
     /**
      * An immutable instance with all components set to 0

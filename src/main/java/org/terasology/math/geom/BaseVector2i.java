@@ -20,12 +20,14 @@ import java.math.RoundingMode;
 
 import com.google.common.math.DoubleMath;
 import com.google.common.base.Preconditions;
+import org.joml.Vector2ic;
+import org.joml.Vector3fc;
 
 /**
  * A vector/point in 2D space
  * @author auto-generated
  */
-public abstract class BaseVector2i {
+public abstract class BaseVector2i implements Vector2ic {
 
     /**
      * An immutable instance with all components set to 0
@@ -86,7 +88,7 @@ public abstract class BaseVector2i {
     /**
      * @return the squared distance to the origin
      */
-    public int lengthSquared() {
+    public long lengthSquared() {
         return getX() * getX() + getY() * getY();
     }
 
@@ -154,36 +156,36 @@ public abstract class BaseVector2i {
         return p1.distance(p2);
     }
 
-    /**
-     * All point implementations with the same coordinate are equal
-     */
-    @Override
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj instanceof BaseVector2i) {
-            BaseVector2i other = (BaseVector2i) obj;
-            return getX() == other.getX()
-                && getY() == other.getY();
-        }
-        return false;
-    }
-
-    /**
-     * All point implementations with the same coordinate have the same hashcode
-     */
-    @Override
-    public final int hashCode() {
-        int result = 1;
-        final int prime = 1021;
-        result = prime * result + getX();
-        result = prime * result + getY();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "(" + getX() + ", " + getY() + ")";
-    }
+//    /**
+//     * All point implementations with the same coordinate are equal
+//     */
+//    @Override
+//    public final boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj instanceof BaseVector2i) {
+//            BaseVector2i other = (BaseVector2i) obj;
+//            return getX() == other.getX()
+//                && getY() == other.getY();
+//        }
+//        return false;
+//    }
+//
+//    /**
+//     * All point implementations with the same coordinate have the same hashcode
+//     */
+//    @Override
+//    public final int hashCode() {
+//        int result = 1;
+//        final int prime = 1021;
+//        result = prime * result + getX();
+//        result = prime * result + getY();
+//        return result;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "(" + getX() + ", " + getY() + ")";
+//    }
 }

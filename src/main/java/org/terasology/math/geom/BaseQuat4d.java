@@ -17,12 +17,14 @@
 package org.terasology.math.geom;
 
 
+import org.joml.Quaterniondc;
+
 /**
  * A 4-element quaternion represented by double precision floating 
  * point x,y,z,w coordinates.
  * @author Martin Steiger
  */
-public abstract class BaseQuat4d {
+public abstract class BaseQuat4d implements Quaterniondc {
 
     /**
      * The immutable identity quaternion
