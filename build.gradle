@@ -22,7 +22,6 @@ buildscript {
 ext {
     dirConfigMetrics = 'config/metrics'
     generatorClassName = 'org.terasology.math.generator.MathGeneratorRunner'
-    generatedSrcDir = 'src/generated/java'
 
     // Read environment variables, including variables passed by jenkins continuous integration server
     env = System.getenv()
@@ -32,28 +31,15 @@ ext {
 repositories {
     // Main Maven repo
     mavenCentral()
-
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
     // MovingBlocks Artifactory instance for libs not readily available elsewhere plus our own libs
     maven {
         url "http://artifactory.terasology.org/artifactory/virtual-repo-live"
     }
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir generatedSrcDir
-        }
-    }
-    generator {
-        java {
-            srcDir 'src/generator/java'
-        }
-        resources {
-            srcDir 'src/generator/resources'
-        }
-    }
-}
 
 configurations {
     codeMetrics
@@ -72,12 +58,15 @@ task extractConfig (type: Copy) {
 // Primary dependencies definition
 dependencies {
     checkstyle ('com.puppycrawl.tools:checkstyle:6.14.1')
+
+    compile 'org.joml:joml:1.9.13'
+
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.12'
     compile group: 'com.google.guava', name: 'guava', version: '18.0'
 
-    generatorCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.12'
-    generatorCompile group: 'com.google.guava', name: 'guava', version: '18.0'
-    generatorCompile group: 'org.antlr', name: 'ST4', version: '4.0.8'
+//    generatorCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.12'
+//    generatorCompile group: 'com.google.guava', name: 'guava', version: '18.0'
+//    generatorCompile group: 'org.antlr', name: 'ST4', version: '4.0.8'
 
     // These dependencies are only needed for running tests
     testCompile group: 'junit', name: 'junit', version: '4.12'
@@ -91,34 +80,11 @@ dependencies {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-task generateSources(type:JavaExec) {
-    dependsOn compileGeneratorJava
-    outputs.dir file(generatedSrcDir)
-    
-    main = generatorClassName
-    workingDir = rootDir
-    String[] runArgs = []
-    args runArgs
-
-    classpath sourceSets.generator.output.classesDir
-    classpath sourceSets.generator.runtimeClasspath
-}
-
-compileJava.dependsOn generateSources
-
-clean {
-    // the clean task should delete the folder, because it is the
-    // output folder of generateSources, but it doesn't do it.
-    delete generatedSrcDir
-}
-
 // Library and distribution config
 group = 'org.terasology'
 description = 'A math / geometry library'
 // project name must be defined in a separate settings.gradle file
 
-// Beyond the common Java setup this project also has some generated source files to add in
-sourceJar.dependsOn generateSources
 
 // TODO: Temporary until javadoc has been fixed for Java 8 everywhere
 javadoc {
@@ -151,10 +117,10 @@ idea {
         excludeDirs += file('.settings')
 
         // Add another source set
-        sourceDirs += sourceSets.generator.allJava.srcDirs
+//        sourceDirs += sourceSets.generator.allJava.srcDirs
 
         // Add the dependencies from the generator compile config
-        scopes.PROVIDED.plus += [ configurations.generatorCompile ]
+//        scopes.PROVIDED.plus += [ configurations.generatorCompile ]
     }
 
     workspace {
@@ -168,7 +134,7 @@ idea {
     }
 }
 
-ideaModule.dependsOn generateSources
+//ideaModule.dependsOn generateSources
 
 ext {
 
